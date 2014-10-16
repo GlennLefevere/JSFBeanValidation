@@ -9,4 +9,5 @@ public interface EmployeeService {
 	public List<Employee> findAll();
 	public Employee find(Long id);
 	public void remove(Employee employee);
+	public void edit(Employee employee);
 }

@@ -16,6 +16,9 @@
 			<li><h:outputText value="#{employeeDetailController.employee.email}"/></li>
 		</ul>
 		<p:commandButton action="#{employeeDetailController.verwijderen}" value="Verwijderen"/>
+		<p:button outcome="edit.jsf" value="wjzigen">
+			<f:param value="#{employeeDetailController.employee.id}" name="id"/>
+		</p:button>
 	</h:form>
 </h:body>
 </html>

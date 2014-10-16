@@ -11,7 +11,7 @@ import be.vdab.entities.Employee;
 
 @Service
 @Transactional(readOnly = true)
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDAO employeeDAO;
 
 	@Autowired
@@ -19,11 +19,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 		this.employeeDAO = employeeDAO;
 	}
 
-
 	@Transactional(readOnly = false)
 	@Override
 	public void create(Employee employee) {
-		System.out.println("de autowire is gelukt" + employee);
 		employeeDAO.save(employee);
 	}
 
@@ -32,20 +30,22 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDAO.findAll();
 	}
 
-
 	@Override
 	public Employee find(Long id) {
-		
+
 		return employeeDAO.findOne(id);
 	}
-
-
+	@Transactional(readOnly = false)
 	@Override
 	public void remove(Employee employee) {
 		employeeDAO.delete(employee);
-		
+
 	}
 	
-	
+	@Transactional(readOnly = false)
+	@Override
+	public void edit(Employee employee) {
+		employeeDAO.save(employee);
+	}
 
 }
