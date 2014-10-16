@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewParam name="id" value="#{employeeDetailController.id}" />
+	</f:metadata>
+	<h:form>
+		<ul>
+			<li><h:outputText value="#{employeeDetailController.employee.id}"/></li>
+			<li><h:outputText value="#{employeeDetailController.employee.firstName}"/></li>
+			<li><h:outputText value="#{employeeDetailController.employee.lastName}"/></li>
+			<li><h:outputText value="#{employeeDetailController.employee.email}"/></li>
+		</ul>
+		<p:commandButton action="#{employeeDetailController.verwijderen}" value="Verwijderen"/>
+	</h:form>
+</h:body>
+</html>
