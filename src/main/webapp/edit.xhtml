@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:h="http://java.sun.com/jsf/html"
- xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title></title>
 </h:head>
@@ -11,15 +8,23 @@ xmlns:h="http://java.sun.com/jsf/html"
 	<f:metadata>
 		<f:viewParam name="id" value="#{employeeEditController.id}" />
 	</f:metadata>
-	<h:form id = "form1">
-		<label for="firstName">Naam:</label>
-		<p:inputText value="#{employeeEditController.employee.firstName}" required="true" id="firstName" />
-		<h:message for="firstName" styleClass="error" />
-		<p:inputText value="#{employeeEditController.employee.lastName}" required="true" id="lastName" />
-		<h:message for="lastName" styleClass="error" />
-		<p:inputText value="#{employeeEditController.employee.email}" required="true" id="email" />
-		<h:inputHidden value="#{employeeEditController.employee.id}" id="id"/>
-		<h:message for="email" styleClass="error" />
+	<h:form id="form1">
+		<h:panelGrid columns="3">
+			<h:outputLabel value="FirstName:" for="firstName" />
+			<p:inputText value="#{employeeEditController.employee.firstName}" required="true" id="firstName" />
+			<h:message for="firstName" styleClass="error" />
+			<h:outputLabel value="LastName:" for="lastName" />
+			<p:inputText value="#{employeeEditController.employee.lastName}" required="true" id="lastName" />
+			<h:message for="lastName" styleClass="error" />
+			<h:outputLabel value="Email:" for="email" />
+			<p:inputText value="#{employeeEditController.employee.email}" required="true" id="email" />
+			<h:message for="email" styleClass="error" />
+			<h:outputLabel value="City" />
+			<h:selectOneMenu value="#{employeeEditController.cityId}" id="city">
+				<f:selectItems value="#{employeeEditController.cities}" var="city" itemLabel="#{city.city}" itemValue="#{city.id}" />
+			</h:selectOneMenu>
+			<h:inputHidden value="#{employeeEditController.employee.id}" id="id" />
+		</h:panelGrid>
 		<h:commandButton action="#{employeeEditController.aanpassen}" id="updateButton" value="wijzigen" />
 	</h:form>
 </h:body>

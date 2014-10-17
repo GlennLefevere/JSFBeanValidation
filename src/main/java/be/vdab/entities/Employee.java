@@ -3,7 +3,6 @@ package be.vdab.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -31,7 +32,8 @@ public class Employee implements Serializable {
 	@NotBlank
 	@Email
 	private String email;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
+	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="CITYID")
 	private City city;
 	
@@ -72,11 +74,11 @@ public class Employee implements Serializable {
 		return firstName;
 	}
 
-	private City getCity(){
+	public City getCity(){
 		return city;
 	}
 	
-	private void setCity(City city){
+	public void setCity(City city){
 		this.city = city;
 	}
 	

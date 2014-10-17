@@ -15,7 +15,7 @@
 			<f:facet name="header">
 					Employees
 				</f:facet>
-				<p:column headerText="Id" sortBy="#{employee.id}">
+				<p:column headerText="Id" sortBy="#{employee.id}" >
 					<h:outputText value="#{employee.id}" />
 				</p:column>
 				<p:column headerText="Firstname" sortBy="#{employee.firstName}">
@@ -26,6 +26,12 @@
 				</p:column>
 				<p:column headerText="Email" sortBy="#{employee.email}">
 					<h:outputText value="#{employee.email}" />
+				</p:column>
+				<p:column headerText="City" sortBy="#{employee.city.city}">
+					<h:outputText value="#{employee.city.city}" />
+				</p:column>
+				<p:column headerText="City" sortBy="#{employee.city.postalcode}">
+					<h:outputText value="#{employee.city.postalcode}" />
 				</p:column>
 				<p:column headerText="Detail">
 					 <p:link value="Detail" outcome="detail.jsf">

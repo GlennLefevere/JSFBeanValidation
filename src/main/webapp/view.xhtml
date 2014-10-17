@@ -23,6 +23,12 @@
 				<p:column headerText="Email" sortBy="#{employee.email}">
 					<h:outputText value="#{employee.email}" />
 				</p:column>
+				<p:column headerText="City" sortBy="#{employee.city.city}">
+					<h:outputText value="#{employee.city.city}" />
+				</p:column>
+				<p:column headerText="City" sortBy="#{employee.city.postalcode}">
+					<h:outputText value="#{employee.city.postalcode}" />
+				</p:column>
 				<p:column headerText="Detail">
 					 <p:link value="Detail" outcome="detail.jsf">
 						<f:param name="id" value="#{employee.id}" />

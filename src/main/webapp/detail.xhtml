@@ -14,6 +14,8 @@
 			<li><h:outputText value="#{employeeDetailController.employee.firstName}"/></li>
 			<li><h:outputText value="#{employeeDetailController.employee.lastName}"/></li>
 			<li><h:outputText value="#{employeeDetailController.employee.email}"/></li>
+			<li><h:outputText value="#{employeeDetailController.employee.city.city}"/></li>
+			<li><h:outputText value="#{employeeDetailController.employee.city.postalcode}"/></li>
 		</ul>
 		<p:commandButton action="#{employeeDetailController.verwijderen}" value="Verwijderen"/>
 		<p:button outcome="edit.jsf" value="wjzigen">

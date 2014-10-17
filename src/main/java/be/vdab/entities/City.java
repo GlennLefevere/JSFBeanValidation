@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,8 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
-import be.vdab.entities.Employee;
 
 @Entity
 @Table(name = "CITIES")
@@ -26,7 +28,8 @@ public class City implements Serializable{
 	private String city;
 	@NotBlank
 	private String postalcode;
-	@OneToMany(mappedBy="city")
+	@OneToMany(mappedBy="city", fetch= FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
 	private Set<Employee> employees;
 	
 	public Set<Employee> getEmployees() {

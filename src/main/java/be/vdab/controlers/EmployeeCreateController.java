@@ -19,7 +19,6 @@ import be.vdab.services.EmployeeService;
 public class EmployeeCreateController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Employee employee;
-	private Long cityId;
 	private List<City> cities;
 	private transient CityService cityService;
 	private transient EmployeeService employeeService;
@@ -39,9 +38,9 @@ public class EmployeeCreateController implements Serializable{
 	}
 	
 	public String doAddEmployee(){
-		System.out.println(employee + " " + cityId);
-		//employeeService.create(employee);
-		return null;
+		System.out.println(employee.getCity().getCity());
+		employeeService.create(employee);
+		return "view?faces-redirect=true";
 	}
 	
 	

@@ -22,4 +22,9 @@ public class CityServiceImpl implements CityService{
 		return cityDAO.findAll();
 	}
 
+	@Override
+	public City findOne(Long cityId) {
+		return cityDAO.findOne(cityId);
+	}
+
 }

@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:f="http://java.sun.com/jsf/core"
- xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 <h:head>
 <title></title>
 </h:head>
 <h:body>
  <h:form id="newEmployee">
   <h:panelGrid columns="3">
-   <h:outputLabel value="First Name"/>
-   <h:inputText value="#{employeeCreateController.employee.firstName}" id="firstName"/>
+   <p:outputLabel value="First Name"/>
+   <p:inputText value="#{employeeCreateController.employee.firstName}" id="firstName"/>
    <h:message for="firstName"></h:message>
-   <h:outputLabel value="Last Name"/>
-   <h:inputText value="#{employeeCreateController.employee.lastName}" id="lastName"/>
+   <p:outputLabel value="Last Name"/>
+   <p:inputText value="#{employeeCreateController.employee.lastName}" id="lastName"/>
    <h:message for="lastName"></h:message>
-   <h:outputLabel value="Email"/>
-   <h:inputText value="#{employeeCreateController.employee.email}" id="email"/>
+   <p:outputLabel value="Email"/>
+   <p:inputText value="#{employeeCreateController.employee.email}" id="email"/>
    <h:message for="email"></h:message>
-   <h:outputLabel value="City"/>
-   <h:selectOneMenu value="#{employeeCreateController.cityId}">
-   		<f:selectItems value="#{employeeCreateController.cities}" var="city" itemLabel="#{city.city}" itemValue="#{city.id}"/>
-   </h:selectOneMenu>
+   <p:outputLabel value="City"/>
+   <p:selectOneMenu value="#{employeeCreateController.employee.city}" converter="#{CityConverter}">
+   		<f:selectItems value="#{employeeCreateController.cities}" var="city" itemLabel="#{city.city}" itemValue="#{city}"/>
+   </p:selectOneMenu>
   </h:panelGrid>
-  <h:commandButton value="Add" action="#{employeeCreateController.doAddEmployee}"/>
+  <p:commandButton value="Add" action="#{employeeCreateController.doAddEmployee}"/>
  </h:form>
 </h:body>
 </html>
