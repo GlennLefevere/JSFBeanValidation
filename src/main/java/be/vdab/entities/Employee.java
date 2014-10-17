@@ -3,9 +3,12 @@ package be.vdab.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -13,7 +16,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "EMPLOYEE")
+@Table(name = "WERKNEMERS")
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +31,10 @@ public class Employee implements Serializable {
 	@NotBlank
 	@Email
 	private String email;
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="CITYID")
+	private City city;
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -63,9 +69,17 @@ public class Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Employee [id = " + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return firstName;
 	}
 
+	private City getCity(){
+		return city;
+	}
+	
+	private void setCity(City city){
+		this.city = city;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -10,4 +10,5 @@ public interface EmployeeService {
 	public Employee find(Long id);
 	public void remove(Employee employee);
 	public void edit(Employee employee);
+	public List<Employee> findByNaamContaining(String waarde);
 }

@@ -18,6 +18,10 @@ xmlns:f="http://java.sun.com/jsf/core"
    <h:outputLabel value="Email"/>
    <h:inputText value="#{employeeCreateController.employee.email}" id="email"/>
    <h:message for="email"></h:message>
+   <h:outputLabel value="City"/>
+   <h:selectOneMenu value="#{employeeCreateController.cityId}">
+   		<f:selectItems value="#{employeeCreateController.cities}" var="city" itemLabel="#{city.city}" itemValue="#{city.id}"/>
+   </h:selectOneMenu>
   </h:panelGrid>
   <h:commandButton value="Add" action="#{employeeCreateController.doAddEmployee}"/>
  </h:form>

@@ -48,4 +48,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeDAO.save(employee);
 	}
 
+	@Override
+	public List<Employee> findByNaamContaining(String waarde) {
+		return employeeDAO.findByFirstNameContaining(waarde);
+	}
+
 }
