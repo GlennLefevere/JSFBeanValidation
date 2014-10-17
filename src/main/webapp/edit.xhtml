@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title></title>
 </h:head>
@@ -8,15 +11,16 @@
 	<f:metadata>
 		<f:viewParam name="id" value="#{employeeEditController.id}" />
 	</f:metadata>
-	<h:form>
+	<h:form id = "form1">
 		<label for="firstName">Naam:</label>
 		<p:inputText value="#{employeeEditController.employee.firstName}" required="true" id="firstName" />
 		<h:message for="firstName" styleClass="error" />
 		<p:inputText value="#{employeeEditController.employee.lastName}" required="true" id="lastName" />
 		<h:message for="lastName" styleClass="error" />
-		<p:inputText value="#{employeeEditController.employee.email}"  required="true" id="email" />
+		<p:inputText value="#{employeeEditController.employee.email}" required="true" id="email" />
+		<h:inputHidden value="#{employeeEditController.employee.id}" id="id"/>
 		<h:message for="email" styleClass="error" />
-		<p:commandButton action="#{employeeEditController.aanpassen}" value="wijzigen" ajax="true"/>
+		<h:commandButton action="#{employeeEditController.aanpassen}" id="updateButton" value="wijzigen" />
 	</h:form>
 </h:body>
 </html>

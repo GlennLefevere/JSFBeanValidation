@@ -29,6 +29,10 @@ public class Employee implements Serializable {
 	@Email
 	private String email;
 
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -59,7 +63,7 @@ public class Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Employee [id = " + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 
 	@Override

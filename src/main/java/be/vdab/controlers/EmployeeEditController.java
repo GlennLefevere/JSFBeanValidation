@@ -31,7 +31,7 @@ public class EmployeeEditController implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 		employee = employeeService.find(this.id);
-		System.out.println(employee);
+		System.out.println(employee); 
 	}
 
 	public Employee getEmployee() {
@@ -43,13 +43,14 @@ public class EmployeeEditController implements Serializable {
 	}
 
 	public String aanpassen() {
-		System.out.println("test");
-		/*employeeService.edit(employee);
-		return "detail?faces-redirect=true";*/
-		return null;
+		System.out.println(employee);
+		employeeService.edit(employee); 
+		return "detail?faces-redirect=true&id=" + employee.getId();
 	}
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
+		System.out.println("init");
+		employee = new Employee();
 	}
 }
