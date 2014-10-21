@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> findAll() {
-		return employeeDAO.findAll();
+		return employeeDAO.findByIdIsNotNullOrderByIdAsc();
 	}
 
 	@Override

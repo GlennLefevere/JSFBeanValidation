@@ -38,7 +38,6 @@ public class EmployeeCreateController implements Serializable{
 	}
 	
 	public String doAddEmployee(){
-		System.out.println(employee.getCity().getCity());
 		employeeService.create(employee);
 		return "view?faces-redirect=true";
 	}

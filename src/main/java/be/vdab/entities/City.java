@@ -12,8 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -29,7 +27,6 @@ public class City implements Serializable{
 	@NotBlank
 	private String postalcode;
 	@OneToMany(mappedBy="city", fetch= FetchType.LAZY)
-	@Fetch(FetchMode.SELECT)
 	private Set<Employee> employees;
 	
 	public Set<Employee> getEmployees() {

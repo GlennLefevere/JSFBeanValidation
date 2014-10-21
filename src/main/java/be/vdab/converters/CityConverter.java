@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import be.vdab.dao.CityDAO;
 import be.vdab.entities.City;
 
-@Component
+@Component("CityConverter")
 public class CityConverter implements Converter{
 	private final CityDAO cityDAO;
 

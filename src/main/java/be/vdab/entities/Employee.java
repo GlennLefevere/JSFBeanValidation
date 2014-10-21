@@ -3,21 +3,23 @@ package be.vdab.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "WERKNEMERS")
+@NamedEntityGraph(name="Employee.withCity", attributeNodes=@NamedAttributeNode("city"))
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +34,7 @@ public class Employee implements Serializable {
 	@NotBlank
 	@Email
 	private String email;
-	@ManyToOne
-	@Fetch(FetchMode.JOIN)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="CITYID")
 	private City city;
 	
