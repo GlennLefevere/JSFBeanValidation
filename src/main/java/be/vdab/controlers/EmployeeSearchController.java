@@ -9,7 +9,11 @@ import org.springframework.stereotype.Component;
 
 import be.vdab.entities.Employee;
 import be.vdab.services.EmployeeService;
-
+ /**
+  * Controller voor het opzoeken van een werknemer
+  * @author cursist
+  *
+  */
 @Component
 @Scope("request")
 public class EmployeeSearchController implements Serializable {

@@ -14,6 +14,11 @@ import be.vdab.entities.Employee;
 import be.vdab.services.CityService;
 import be.vdab.services.EmployeeService;
 
+/**
+ * Controller voor het creëren van een werknemer
+ * @author cursist
+ *
+ */
 @Component
 @Scope("request")
 public class EmployeeCreateController implements Serializable{
