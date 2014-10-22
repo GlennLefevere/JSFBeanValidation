@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 import be.vdab.entities.Employee;
 import be.vdab.services.EmployeeService;
 
+/**
+ * De controller voor het gedetaileerd weergeven van een werknemer
+ * @author cursist
+ *
+ */
 @Component
 @Scope("request")
 public class EmployeeDetailController implements Serializable {
