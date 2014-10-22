@@ -14,6 +14,11 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * Stelt een stad voor die uit de database gehaald kan worden
+ * @author cursist
+ *
+ */
 @Entity
 @Table(name = "CITIES")
 public class City implements Serializable{
@@ -83,6 +88,9 @@ public class City implements Serializable{
 			return false;
 		return true;
 	}
+	/**
+	 * Het opvragen van de stad met postcode in string vorm
+	 */
 	@Override
 	public String toString() {
 		return city + " " + postalcode;

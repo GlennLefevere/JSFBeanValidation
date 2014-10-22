@@ -4,6 +4,11 @@ import java.util.List;
 
 import be.vdab.entities.Employee;
 
+/**
+ * Service voor het ophalen van Werknemers uit de database
+ * @author cursist
+ *
+ */
 public interface EmployeeService {
 	public void create(Employee employee);
 	public List<Employee> findAll();

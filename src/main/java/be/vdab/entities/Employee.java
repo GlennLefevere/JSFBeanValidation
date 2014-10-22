@@ -17,6 +17,11 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * Stelt een werknemer uit de database uit
+ * @author cursist
+ *
+ */
 @Entity
 @Table(name = "WERKNEMERS")
 @NamedEntityGraph(name="Employee.withCity", attributeNodes=@NamedAttributeNode("city"))
