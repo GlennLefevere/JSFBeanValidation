@@ -19,12 +19,13 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Stelt een werknemer uit de database uit
+ * 
  * @author cursist
- *
+ * 
  */
 @Entity
 @Table(name = "WERKNEMERS")
-@NamedEntityGraph(name="Employee.withCity", attributeNodes=@NamedAttributeNode("city"))
+@NamedEntityGraph(name = "Employee.withCity", attributeNodes = @NamedAttributeNode("city"))
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -40,13 +41,29 @@ public class Employee implements Serializable {
 	@Email
 	private String email;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="CITYID")
+	@JoinColumn(name = "CITYID")
 	private City city;
-	
+
+	public Employee(long id, String firstName, String lastName, String email,
+			City city) {
+		this(firstName, lastName, email, city);
+		this.id = id;
+	}
+
+	public Employee(String firstName, String lastName, String email, City city) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.city = city;
+	}
+
+	public Employee() {
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -80,14 +97,14 @@ public class Employee implements Serializable {
 		return firstName;
 	}
 
-	public City getCity(){
+	public City getCity() {
 		return city;
 	}
-	
-	public void setCity(City city){
+
+	public void setCity(City city) {
 		this.city = city;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

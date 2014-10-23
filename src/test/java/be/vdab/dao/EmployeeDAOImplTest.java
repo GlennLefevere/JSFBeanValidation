@@ -1,7 +1,5 @@
 package be.vdab.dao;
 
-import java.math.BigDecimal;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import be.vdab.datasource.CreateTestDataSourceBean;
+import be.vdab.entities.City;
+import be.vdab.entities.Employee;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { CreateTestDAOBeans.class,
@@ -19,19 +19,16 @@ public class EmployeeDAOImplTest {
 	private EmployeeDAO employeeDAO;
 	@Autowired
 	private CityDAO cityDAO;
-	
 
 	@Test
 	public void create() {
-		Soort soort = new Soort("SoortNaam");
-		soort = soortDAO.save(soort);
-		Brouwer brouwer = new Brouwer("TrstBrouwer", new Adres("Straat",
-				"HuisNr", 1000, "Gemeente"), 5);
-		brouwer = brouwerDAO.save(brouwer);
-		Bier bier = new Bier("TestNaam", brouwer, soort,
-				new BigDecimal("14.35"), new BigDecimal("20.99"));
-		bier = bierDAO.save(bier);
-		Assert.assertNotEquals(0, bier.getId()); // id moet autonumber
-													// hebben:
+		City city = new City("city1", "8000");
+		city = cityDAO.save(city);
+
+		Employee employee = new Employee("Peter", "Johnson", "peter@gmail.com",
+				city);
+		employee = employeeDAO.save(employee);
+		Assert.assertNotEquals(0, employee.getId()); // id moet autonumber
+														// hebben:
 	}
 }
