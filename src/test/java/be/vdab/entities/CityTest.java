@@ -1,5 +1,5 @@
 package be.vdab.entities;
 
-public class Test {
+public class CityTest {
 
 }

@@ -1,6 +1,9 @@
 package be.vdab.dao;
 
+<<<<<<< HEAD
 import org.junit.Assert;
+=======
+>>>>>>> branch 'master' of https://github.com/polpiet/JSFBeanValidation.git
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +33,8 @@ public class EmployeeDAOImplTest {
 		employee = employeeDAO.save(employee);
 		Assert.assertNotEquals(0, employee.getId()); // id moet autonumber
 														// hebben:
+
+		
+
 	}
 }
