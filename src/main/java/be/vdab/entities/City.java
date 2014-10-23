@@ -1,6 +1,7 @@
 package be.vdab.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -16,57 +17,81 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Stelt een stad voor die uit de database gehaald kan worden
+ * 
  * @author cursist
- *
+ * 
  */
 @Entity
 @Table(name = "CITIES")
-public class City implements Serializable{
+public class City implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CITY_SEQ")
-	@SequenceGenerator(name="CITY_SEQ", sequenceName="CITIES_SEQUENCE")
+	@SequenceGenerator(name = "CITY_SEQ", sequenceName = "CITIES_SEQUENCE")
 	private long id;
 	@NotBlank
 	private String city;
 	@NotBlank
 	private String postalcode;
-	@OneToMany(mappedBy="city", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
 	private Set<Employee> employees;
+
+	public City(){}
+	
+	public City(String city, String postalcode) {
+		this.city = city;
+		this.postalcode = postalcode;
+		this.employees = new HashSet<>();
+	}
+
+	public City(long id, String city, String postalcode) {
+		this(city, postalcode);
+		this.id = id;
+	}
+
 	
 	public Set<Employee> getEmployees() {
 		return employees;
 	}
+
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getPostalcode() {
 		return postalcode;
 	}
+
 	public void setPostalcode(String postalcode) {
 		this.postalcode = postalcode;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + ((postalcode == null) ? 0 : postalcode.hashCode());
+		result = prime * result
+				+ ((postalcode == null) ? 0 : postalcode.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,6 +113,7 @@ public class City implements Serializable{
 			return false;
 		return true;
 	}
+
 	/**
 	 * Het opvragen van de stad met postcode in string vorm
 	 */
@@ -96,5 +122,4 @@ public class City implements Serializable{
 		return city + " " + postalcode;
 	}
 
-	
 }
