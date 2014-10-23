@@ -110,5 +110,11 @@
 			<artifactId>spring-data-oracle</artifactId>
 			<version>1.0.0.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>[1.9,]</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
